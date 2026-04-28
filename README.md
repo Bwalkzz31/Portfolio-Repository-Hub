@@ -111,6 +111,7 @@
         .neon-border {
             position: relative;
             overflow: hidden;
+            border-radius: 12px;
         }
 
         .neon-border::before {
@@ -209,7 +210,11 @@
     <p>Software Developer • Full‑Stack • Data Tooling • Security</p>
 
     <!-- Resume Button -->
-    <a class="resume-btn" href="resume.pdf" download>Download Resume</a>
+    <a class="resume-btn" 
+       href="https://1drv.ms/w/c/df46f35ac302028d/IQBQuhZUONMaQ4neUTFYLfbLAaYi7p3qwX0stFhaGVzezp0?e=rXSlWO" 
+       target="_blank">
+       View Resume
+    </a>
 </div>
 
 <!-- ===== TECH STACK ===== -->
@@ -292,8 +297,8 @@
 <footer id="contact">
     <p>Get in touch:</p>
     <p>
-        <a href="#">Email</a> • 
-        <a href="#">LinkedIn</a> • 
+        <a href="mailto:b.walker.itm@gmail.com">Email</a> • 
+        <a href="https://www.linkedin.com/in/britany-walker-935389246/" target="_blank">LinkedIn</a> • 
         <a href="https://github.com/Bwalkzz31" target="_blank">GitHub</a>
     </p>
 </footer>
