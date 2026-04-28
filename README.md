@@ -198,6 +198,7 @@
 <!-- ===== NAV BAR ===== -->
 <nav>
     <ul>
+        <li><a href="#about">About Me</a></li>
         <li><a href="#tech">Tech Stack</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -215,6 +216,30 @@
        target="_blank">
        View Resume
     </a>
+</div>
+
+<!-- ===== ABOUT ME SECTION ===== -->
+<div class="section" id="about">
+    <h2>About Me</h2>
+
+    <div class="about-box neon-border" style="padding: 25px; background:#111; border-radius:12px; margin-top:20px;">
+        <p>
+            Hi, I’m <strong>Britany Walker</strong>, a graduate with a Bachelor of Science in Information Technology. 
+            I’m originally from Lexington, Kentucky, and I’m a proud mom to a 9-year-old son who motivates me to keep growing 
+            and pushing forward every day.
+        </p>
+
+        <p>
+            I’m passionate about technology, continuous learning, and solving real-world problems. Outside of tech, 
+            I enjoy spending time in nature, exploring new places, and learning about traditional medicine. 
+            I’m known for being driven, ambitious, and bringing a sense of humor into everything I do.
+        </p>
+
+        <p>
+            I thrive on challenges, set clear goals, and stay focused on improving both personally and professionally. 
+            I’m always looking for opportunities to grow, build, and make a meaningful impact.
+        </p>
+    </div>
 </div>
 
 <!-- ===== TECH STACK ===== -->
