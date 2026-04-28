@@ -13,6 +13,7 @@
             color: #f2f2f2;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -51,10 +52,6 @@
             font-weight: bold;
         }
 
-        nav a:hover {
-            text-shadow: 0 0 12px #ff4da6;
-        }
-
         /* ===== Hero Banner ===== */
         .hero {
             text-align: center;
@@ -74,6 +71,27 @@
             opacity: 0.9;
         }
 
+        /* ===== Resume Button ===== */
+        .resume-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff4da6;
+            border: 2px solid #ff4da6;
+            border-radius: 8px;
+            text-shadow: 0 0 8px #ff4da6;
+            box-shadow: 0 0 12px rgba(255, 77, 166, 0.5);
+            transition: 0.25s ease;
+        }
+
+        .resume-btn:hover {
+            background: #ff4da6;
+            color: #000;
+            box-shadow: 0 0 20px #ff4da6;
+        }
+
         /* ===== Sections ===== */
         .section {
             max-width: 1100px;
@@ -87,6 +105,30 @@
             padding-left: 12px;
             margin-bottom: 25px;
             text-shadow: 0 0 8px #ff4da6;
+        }
+
+        /* ===== Animated Neon Border ===== */
+        .neon-border {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-border::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border: 2px solid #ff4da6;
+            border-radius: 12px;
+            animation: neonGlow 2.5s linear infinite;
+        }
+
+        @keyframes neonGlow {
+            0% { box-shadow: 0 0 10px #ff4da6; }
+            50% { box-shadow: 0 0 25px #ff4da6; }
+            100% { box-shadow: 0 0 10px #ff4da6; }
         }
 
         /* ===== Responsive Project Grid ===== */
@@ -117,6 +159,27 @@
             text-shadow: 0 0 6px #ff4da6;
         }
 
+        /* ===== Back to Top Button ===== */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #ff4da6;
+            color: #000;
+            padding: 12px 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff4da6;
+            transition: 0.25s ease;
+            display: none;
+            z-index: 999;
+        }
+
+        #backToTop:hover {
+            box-shadow: 0 0 25px #ff4da6;
+        }
+
         /* ===== Footer ===== */
         footer {
             text-align: center;
@@ -141,9 +204,12 @@
 </nav>
 
 <!-- ===== HERO BANNER ===== -->
-<div class="hero">
+<div class="hero neon-border">
     <h1>Britany Walker</h1>
     <p>Software Developer • Full‑Stack • Data Tooling • Security</p>
+
+    <!-- Resume Button -->
+    <a class="resume-btn" href="resume.pdf" download>Download Resume</a>
 </div>
 
 <!-- ===== TECH STACK ===== -->
@@ -208,6 +274,19 @@
 
     </div>
 </div>
+
+<!-- ===== BACK TO TOP BUTTON ===== -->
+<div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑ Top
+</div>
+
+<script>
+    // Show button when scrolling
+    window.addEventListener("scroll", () => {
+        const btn = document.getElementById("backToTop");
+        btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+</script>
 
 <!-- ===== FOOTER ===== -->
 <footer id="contact">
