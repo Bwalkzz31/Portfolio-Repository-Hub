@@ -25,31 +25,58 @@
             text-shadow: 0 0 8px #ff4da6;
         }
 
-        /* ===== Header ===== */
-        header {
-            text-align: center;
-            padding: 60px 20px;
+        /* ===== Glowing Nav Bar ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: #000;
+            padding: 15px 0;
             border-bottom: 2px solid #ff4da6;
-            box-shadow: 0 0 20px #ff4da6;
+            box-shadow: 0 0 15px #ff4da6;
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 2.6rem;
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
             margin: 0;
-            color: #ff4da6;
+            padding: 0;
+        }
+
+        nav a {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        nav a:hover {
             text-shadow: 0 0 12px #ff4da6;
         }
 
-        header p {
-            margin-top: 12px;
-            font-size: 1.15rem;
+        /* ===== Hero Banner ===== */
+        .hero {
+            text-align: center;
+            padding: 160px 20px 100px;
+            background: linear-gradient(to bottom, #000, #0a0a0a);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ff4da6;
+            text-shadow: 0 0 15px #ff4da6;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
             opacity: 0.9;
         }
 
         /* ===== Sections ===== */
         .section {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 50px auto;
             padding: 0 20px;
         }
@@ -62,11 +89,16 @@
             text-shadow: 0 0 8px #ff4da6;
         }
 
-        /* ===== Project Cards ===== */
+        /* ===== Responsive Project Grid ===== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
         .project {
             background: #111;
             padding: 20px;
-            margin-bottom: 25px;
             border-radius: 10px;
             border-left: 4px solid #ff4da6;
             box-shadow: 0 0 12px rgba(255, 77, 166, 0.4);
@@ -94,21 +126,28 @@
             border-top: 2px solid #ff4da6;
             box-shadow: 0 0 20px #ff4da6;
         }
-
-        footer a:hover {
-            text-shadow: 0 0 10px #ff4da6;
-        }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Software Developer — Akron, OH</h1>
-    <p>Full‑stack development • Data tooling • Security risk assessment</p>
-</header>
+<!-- ===== NAV BAR ===== -->
+<nav>
+    <ul>
+        <li><a href="#tech">Tech Stack</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-<div class="section">
+<!-- ===== HERO BANNER ===== -->
+<div class="hero">
+    <h1>Britany Walker</h1>
+    <p>Software Developer • Full‑Stack • Data Tooling • Security</p>
+</div>
+
+<!-- ===== TECH STACK ===== -->
+<div class="section" id="tech">
     <h2>Tech Stack</h2>
     <p><strong>Frontend:</strong> HTML/CSS, React, TypeScript</p>
     <p><strong>Backend:</strong> Node.js, Express, Python (data tooling)</p>
@@ -116,56 +155,62 @@
     <p><strong>Tools:</strong> Git, GitHub Actions, Docker</p>
 </div>
 
-<div class="section">
+<!-- ===== PROJECT GRID ===== -->
+<div class="section" id="projects">
     <h2>Projects</h2>
 
-    <div class="project">
-        <div class="project-title">Campus Security Risk Assessment — Finished</div>
-        <p><strong>One‑liner:</strong> Delivered an end‑to‑end risk assessment framework used for campus safety planning.</p>
-        <p><a href="https://github.com/Bwalkzz31/campus-security-risk-assessment/README.md" target="_blank">View README</a></p>
-    </div>
+    <div class="project-grid">
 
-    <div class="project">
-        <div class="project-title">Project 2 — Finished</div>
-        <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 2]</p>
-        <p><a href="https://github.com/Bwalkzz31/project-02/README.md" target="_blank">View README</a></p>
-    </div>
+        <div class="project">
+            <div class="project-title">Campus Security Risk Assessment — Finished</div>
+            <p><strong>One‑liner:</strong> Delivered an end‑to‑end risk assessment framework used for campus safety planning.</p>
+            <p><a href="https://github.com/Bwalkzz31/campus-security-risk-assessment/README.md" target="_blank">View README</a></p>
+        </div>
 
-    <div class="project">
-        <div class="project-title">Project 3 — Finished</div>
-        <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 3]</p>
-        <p><a href="https://github.com/Bwalkzz31/project-03/README.md" target="_blank">View README</a></p>
-    </div>
+        <div class="project">
+            <div class="project-title">Project 2 — Finished</div>
+            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 2]</p>
+            <p><a href="https://github.com/Bwalkzz31/project-02/README.md" target="_blank">View README</a></p>
+        </div>
 
-    <div class="project">
-        <div class="project-title">Project 4 — Finished</div>
-        <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 4]</p>
-        <p><a href="https://github.com/Bwalkzz31/project-04/README.md" target="_blank">View README</a></p>
-    </div>
+        <div class="project">
+            <div class="project-title">Project 3 — Finished</div>
+            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 3]</p>
+            <p><a href="https://github.com/Bwalkzz31/project-03/README.md" target="_blank">View README</a></p>
+        </div>
 
-    <div class="project">
-        <div class="project-title">Project 5 — In Progress</div>
-        <p><strong>ETA:</strong> 2026‑06‑30</p>
-        <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 5]</p>
-        <p><a href="https://github.com/Bwalkzz31/project-05/README.md" target="_blank">View README</a></p>
-    </div>
+        <div class="project">
+            <div class="project-title">Project 4 — Finished</div>
+            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 4]</p>
+            <p><a href="https://github.com/Bwalkzz31/project-04/README.md" target="_blank">View README</a></p>
+        </div>
 
-    <div class="project">
-        <div class="project-title">Project 6 — In Progress</div>
-        <p><strong>ETA:</strong> 2026‑07‑15</p>
-        <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 6]</p>
-        <p><a href="https://github.com/Bwalkzz31/project-06/README.md" target="_blank">View README</a></p>
-    </div>
+        <div class="project">
+            <div class="project-title">Project 5 — In Progress</div>
+            <p><strong>ETA:</strong> 2026‑06‑30</p>
+            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 5]</p>
+            <p><a href="https://github.com/Bwalkzz31/project-05/README.md" target="_blank">View README</a></p>
+        </div>
 
-    <div class="project">
-        <div class="project-title">Project 7 — In Progress</div>
-        <p><strong>ETA:</strong> 2026‑08‑01</p>
-        <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 7]</p>
-        <p><a href="https://github.com/Bwalkzz31/project-07/README.md" target="_blank">View README</a></p>
+        <div class="project">
+            <div class="project-title">Project 6 — In Progress</div>
+            <p><strong>ETA:</strong> 2026‑07‑15</p>
+            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 6]</p>
+            <p><a href="https://github.com/Bwalkzz31/project-06/README.md" target="_blank">View README</a></p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Project 7 — In Progress</div>
+            <p><strong>ETA:</strong> 2026‑08‑01</p>
+            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 7]</p>
+            <p><a href="https://github.com/Bwalkzz31/project-07/README.md" target="_blank">View README</a></p>
+        </div>
+
     </div>
 </div>
 
-<footer>
+<!-- ===== FOOTER ===== -->
+<footer id="contact">
     <p>Get in touch:</p>
     <p>
         <a href="#">Email</a> • 
