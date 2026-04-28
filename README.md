@@ -132,7 +132,7 @@
             100% { box-shadow: 0 0 10px #ff4da6; }
         }
 
-        /* ===== Responsive Project Grid ===== */
+        /* ===== Dynamic Project Grid ===== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -158,6 +158,47 @@
             font-weight: bold;
             color: #ff4da6;
             text-shadow: 0 0 6px #ff4da6;
+            margin-bottom: 8px;
+        }
+
+        .project-meta {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .badge-row {
+            margin: 8px 0 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 2px 4px 2px 0;
+            border-radius: 999px;
+            border: 1px solid #ff4da6;
+            font-size: 0.8rem;
+            text-shadow: 0 0 4px #ff4da6;
+        }
+
+        .project-actions {
+            margin-top: 10px;
+        }
+
+        .btn-link {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-right: 8px;
+            border-radius: 6px;
+            border: 1px solid #ff4da6;
+            font-size: 0.85rem;
+            text-shadow: 0 0 4px #ff4da6;
+        }
+
+        .btn-link:hover {
+            background: #ff4da6;
+            color: #000;
+            box-shadow: 0 0 12px #ff4da6;
         }
 
         /* ===== Back to Top Button ===== */
@@ -251,58 +292,21 @@
     <p><strong>Tools:</strong> Git, GitHub Actions, Docker</p>
 </div>
 
-<!-- ===== PROJECT GRID ===== -->
+<!-- ===== PROJECTS (GITHUB API AUTO-PULL) ===== -->
 <div class="section" id="projects">
     <h2>Projects</h2>
+    <p style="opacity:0.85; margin-bottom:20px;">
+        These projects are pulled live from my GitHub profile and represent my core work in IT, security, and full‑stack development.
+    </p>
 
-    <div class="project-grid">
-
-        <div class="project">
-            <div class="project-title">Campus Security Risk Assessment — Finished</div>
-            <p><strong>One‑liner:</strong> Delivered an end‑to‑end risk assessment framework used for campus safety planning.</p>
-            <p><a href="https://github.com/Bwalkzz31/campus-security-risk-assessment/README.md" target="_blank">View README</a></p>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Project 2 — Finished</div>
-            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 2]</p>
-            <p><a href="https://github.com/Bwalkzz31/project-02/README.md" target="_blank">View README</a></p>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Project 3 — Finished</div>
-            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 3]</p>
-            <p><a href="https://github.com/Bwalkzz31/project-03/README.md" target="_blank">View README</a></p>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Project 4 — Finished</div>
-            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 4]</p>
-            <p><a href="https://github.com/Bwalkzz31/project-04/README.md" target="_blank">View README</a></p>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Project 5 — In Progress</div>
-            <p><strong>ETA:</strong> 2026‑06‑30</p>
-            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 5]</p>
-            <p><a href="https://github.com/Bwalkzz31/project-05/README.md" target="_blank">View README</a></p>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Project 6 — In Progress</div>
-            <p><strong>ETA:</strong> 2026‑07‑15</p>
-            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 6]</p>
-            <p><a href="https://github.com/Bwalkzz31/project-06/README.md" target="_blank">View README</a></p>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Project 7 — In Progress</div>
-            <p><strong>ETA:</strong> 2026‑08‑01</p>
-            <p><strong>One‑liner:</strong> [Placeholder impact statement for Project 7]</p>
-            <p><a href="https://github.com/Bwalkzz31/project-07/README.md" target="_blank">View README</a></p>
-        </div>
-
+    <div id="project-grid" class="project-grid">
+        <!-- Dynamic cards will be injected here -->
     </div>
+
+    <p id="projects-fallback" style="margin-top:20px; opacity:0.7; display:none;">
+        If projects are not loading, you can view them directly on 
+        <a href="https://github.com/Bwalkzz31" target="_blank">my GitHub profile</a>.
+    </p>
 </div>
 
 <!-- ===== BACK TO TOP BUTTON ===== -->
@@ -311,11 +315,94 @@
 </div>
 
 <script>
-    // Show button when scrolling
+    // Back to top visibility
     window.addEventListener("scroll", () => {
         const btn = document.getElementById("backToTop");
         btn.style.display = window.scrollY > 300 ? "block" : "none";
     });
+
+    // ===== GitHub API Auto-Pull for Projects =====
+    const projectsConfig = [
+        { owner: "Bwalkzz31", repo: "campus-security-risk-assessment",   tags: ["Risk Assessment", "Security", "Excel"] },
+        { owner: "Bwalkzz31", repo: "it-support-ticket-system",          tags: ["HTML", "CSS", "IT Support"] },
+        { owner: "Bwalkzz31", repo: "aws-secure-3tier-vpc",              tags: ["AWS", "VPC", "Security"] },
+        { owner: "Bwalkzz31", repo: "code--review---dashboard",          tags: ["Flask", "Python", "Code Review"] },
+        { owner: "Bwalkzz31", repo: "api-integration-hub",               tags: ["Flask", "APIs", "Webhooks"] },
+        { owner: "Bwalkzz31", repo: "taskflow-fullstack",                tags: ["React", "TypeScript", "Node.js", "PostgreSQL"] },
+        { owner: "Bwalkzz31", repo: "electronics-design-portfolio",      tags: ["Electronics", "Logic Design", "Simulation"] }
+    ];
+
+    const projectGrid = document.getElementById("project-grid");
+    const fallbackText = document.getElementById("projects-fallback");
+
+    async function loadProjects() {
+        try {
+            const cards = await Promise.all(
+                projectsConfig.map(async (p) => {
+                    const res = await fetch(`https://api.github.com/repos/${p.owner}/${p.repo}`);
+                    if (!res.ok) return null;
+                    const data = await res.json();
+                    return { config: p, data };
+                })
+            );
+
+            const validCards = cards.filter(c => c !== null);
+
+            if (validCards.length === 0) {
+                fallbackText.style.display = "block";
+                return;
+            }
+
+            validCards.forEach(({ config, data }) => {
+                const card = document.createElement("div");
+                card.className = "project";
+
+                const title = document.createElement("div");
+                title.className = "project-title";
+                title.textContent = data.name.replace(/-/g, " ");
+
+                const meta = document.createElement("div");
+                meta.className = "project-meta";
+                meta.textContent = `${data.language || "Tech"} • Updated ${new Date(data.updated_at).toLocaleDateString()}`;
+
+                const desc = document.createElement("p");
+                desc.textContent = data.description || "Project description coming soon.";
+
+                const badgeRow = document.createElement("div");
+                badgeRow.className = "badge-row";
+                (config.tags || []).forEach(tag => {
+                    const b = document.createElement("span");
+                    b.className = "badge";
+                    b.textContent = tag;
+                    badgeRow.appendChild(b);
+                });
+
+                const actions = document.createElement("div");
+                actions.className = "project-actions";
+
+                const codeLink = document.createElement("a");
+                codeLink.className = "btn-link";
+                codeLink.href = data.html_url;
+                codeLink.target = "_blank";
+                codeLink.textContent = "View Code";
+
+                actions.appendChild(codeLink);
+
+                card.appendChild(title);
+                card.appendChild(meta);
+                card.appendChild(desc);
+                card.appendChild(badgeRow);
+                card.appendChild(actions);
+
+                projectGrid.appendChild(card);
+            });
+        } catch (e) {
+            console.error(e);
+            fallbackText.style.display = "block";
+        }
+    }
+
+    loadProjects();
 </script>
 
 <!-- ===== FOOTER ===== -->
