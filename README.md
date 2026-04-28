@@ -6,7 +6,6 @@
     <title>Portfolio Hub — Bwalkzz31</title>
 
     <style>
-        /* ===== Base Styling ===== */
         body {
             font-family: "Segoe UI", Arial, sans-serif;
             background: #0a0a0a;
@@ -26,7 +25,6 @@
             text-shadow: 0 0 8px #ff4da6;
         }
 
-        /* ===== Glowing Nav Bar ===== */
         nav {
             position: fixed;
             top: 0;
@@ -52,7 +50,6 @@
             font-weight: bold;
         }
 
-        /* ===== Hero Banner ===== */
         .hero {
             text-align: center;
             padding: 160px 20px 100px;
@@ -71,7 +68,6 @@
             opacity: 0.9;
         }
 
-        /* ===== Resume Button ===== */
         .resume-btn {
             display: inline-block;
             margin-top: 25px;
@@ -92,7 +88,6 @@
             box-shadow: 0 0 20px #ff4da6;
         }
 
-        /* ===== Sections ===== */
         .section {
             max-width: 1100px;
             margin: 50px auto;
@@ -107,7 +102,6 @@
             text-shadow: 0 0 8px #ff4da6;
         }
 
-        /* ===== Animated Neon Border ===== */
         .neon-border {
             position: relative;
             overflow: hidden;
@@ -132,7 +126,6 @@
             100% { box-shadow: 0 0 10px #ff4da6; }
         }
 
-        /* ===== Dynamic Project Grid ===== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -201,7 +194,6 @@
             box-shadow: 0 0 12px #ff4da6;
         }
 
-        /* ===== Back to Top Button ===== */
         #backToTop {
             position: fixed;
             bottom: 30px;
@@ -222,7 +214,6 @@
             box-shadow: 0 0 25px #ff4da6;
         }
 
-        /* ===== Footer ===== */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -236,7 +227,6 @@
 
 <body>
 
-<!-- ===== NAV BAR ===== -->
 <nav>
     <ul>
         <li><a href="#about">About Me</a></li>
@@ -246,12 +236,10 @@
     </ul>
 </nav>
 
-<!-- ===== HERO BANNER ===== -->
 <div class="hero neon-border">
     <h1>Britany Walker</h1>
     <p>Software Developer • Full‑Stack • Data Tooling • Security</p>
 
-    <!-- Resume Button -->
     <a class="resume-btn" 
        href="https://1drv.ms/w/c/df46f35ac302028d/IQBQuhZUONMaQ4neUTFYLfbLAaYi7p3qwX0stFhaGVzezp0?e=rXSlWO" 
        target="_blank">
@@ -259,7 +247,6 @@
     </a>
 </div>
 
-<!-- ===== ABOUT ME SECTION ===== -->
 <div class="section" id="about">
     <h2>About Me</h2>
 
@@ -283,7 +270,6 @@
     </div>
 </div>
 
-<!-- ===== TECH STACK ===== -->
 <div class="section" id="tech">
     <h2>Tech Stack</h2>
     <p><strong>Frontend:</strong> HTML/CSS, React, TypeScript</p>
@@ -292,16 +278,13 @@
     <p><strong>Tools:</strong> Git, GitHub Actions, Docker</p>
 </div>
 
-<!-- ===== PROJECTS (GITHUB API AUTO-PULL) ===== -->
 <div class="section" id="projects">
     <h2>Projects</h2>
     <p style="opacity:0.85; margin-bottom:20px;">
         These projects are pulled live from my GitHub profile and represent my core work in IT, security, and full‑stack development.
     </p>
 
-    <div id="project-grid" class="project-grid">
-        <!-- Dynamic cards will be injected here -->
-    </div>
+    <div id="project-grid" class="project-grid"></div>
 
     <p id="projects-fallback" style="margin-top:20px; opacity:0.7; display:none;">
         If projects are not loading, you can view them directly on 
@@ -309,27 +292,24 @@
     </p>
 </div>
 
-<!-- ===== BACK TO TOP BUTTON ===== -->
 <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     ↑ Top
 </div>
 
 <script>
-    // Back to top visibility
     window.addEventListener("scroll", () => {
         const btn = document.getElementById("backToTop");
         btn.style.display = window.scrollY > 300 ? "block" : "none";
     });
 
-    // ===== GitHub API Auto-Pull for Projects =====
     const projectsConfig = [
-        { owner: "Bwalkzz31", repo: "campus-security-risk-assessment",   tags: ["Risk Assessment", "Security", "Excel"] },
-        { owner: "Bwalkzz31", repo: "it-support-ticket-system",          tags: ["HTML", "CSS", "IT Support"] },
-        { owner: "Bwalkzz31", repo: "aws-secure-3tier-vpc",              tags: ["AWS", "VPC", "Security"] },
-        { owner: "Bwalkzz31", repo: "code--review---dashboard",          tags: ["Flask", "Python", "Code Review"] },
-        { owner: "Bwalkzz31", repo: "api-integration-hub",               tags: ["Flask", "APIs", "Webhooks"] },
-        { owner: "Bwalkzz31", repo: "taskflow-fullstack",                tags: ["React", "TypeScript", "Node.js", "PostgreSQL"] },
-        { owner: "Bwalkzz31", repo: "electronics-design-portfolio",      tags: ["Electronics", "Logic Design", "Simulation"] }
+        { owner: "Bwalkzz31", repo: "campus-security-risk-assessment", tags: ["Risk Assessment", "Security", "Excel"] },
+        { owner: "Bwalkzz31", repo: "it-support-ticket-system", tags: ["HTML", "CSS", "IT Support"] },
+        { owner: "Bwalkzz31", repo: "aws-secure-3tier-vpc", tags: ["AWS", "VPC", "Security"] },
+        { owner: "Bwalkzz31", repo: "api-integration-hub", tags: ["Flask", "APIs", "Webhooks"] },
+        { owner: "Bwalkzz31", repo: "electronics-design-portfolio", tags: ["Electronics", "Logic Design", "Simulation"] },
+        { owner: "Bwalkz31", repo: "code--review---dashboard", tags: ["Flask", "Python", "Code Review"] },
+        { owner: "Bwalkz31", repo: "taskflow-fullstack", tags: ["React", "TypeScript", "Node.js", "PostgreSQL"] }
     ];
 
     const projectGrid = document.getElementById("project-grid");
@@ -405,7 +385,6 @@
     loadProjects();
 </script>
 
-<!-- ===== FOOTER ===== -->
 <footer id="contact">
     <p>Get in touch:</p>
     <p>
